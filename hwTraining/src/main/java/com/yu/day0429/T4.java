@@ -87,7 +87,7 @@ public class T4 {
                 while (needprice<totalMoney){
 
                 }
-            }ddd
+            }
         }
 
     }
