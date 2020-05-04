@@ -15,6 +15,8 @@ import java.util.Arrays;
  * 需要执行5-1次内循环冒泡出最大值，剩下那个肯定是最小值
  *  每次内循环5-1,五个数两两相比，比4次就可以比出最大值
  *  外循环每执行一次就可以确定一个最大值，内循环就可以少循环一次
+ *
+ *  时间复杂度(O(n^2))
  */
 public class BubbleSort {
     public static void main(String[] args) {

@@ -39,7 +39,7 @@ public class T2 {
     public static void main(String[] args) {
         try {
             Scanner sc = new Scanner(System.in);
-            //while (sc.hasNextLine()) {
+            while (sc.hasNextLine()) {
             String s = sc.nextLine().replaceAll(" ", "");
             if (s.isEmpty()) {
                 return;
@@ -78,7 +78,7 @@ public class T2 {
                 }
             }
             System.out.println(new String(result));
-            //   }
+               }
         } catch (Exception e) {
             e.printStackTrace();
         }

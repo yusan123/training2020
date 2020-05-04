@@ -9,13 +9,7 @@ import java.util.Arrays;
 public class Temp {
     public static void main(String[] args) {
 
-        char x = 'a';
-        char d = 'A';
-
-
-
-        System.out.println((int)x);
-        System.out.println((int)d);
+        System.out.println(T2.getNewChar('9'));
     }
 
 }
