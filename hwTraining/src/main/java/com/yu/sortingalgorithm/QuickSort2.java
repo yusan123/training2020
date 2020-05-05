@@ -16,7 +16,6 @@ public class QuickSort2 {
                 high--;
             }
             a[low] = a[high];
-
             //再从前开始比较，当然第一个a[low]是刚移过来的，low++,直到遇到比pivot小的数,将其替换到high位置的值
             while (low < high && a[low] <= pivot) {
                 low++;
@@ -32,7 +31,6 @@ public class QuickSort2 {
         if (low < high) {
             int pivot = partition(data, low, high);
             quickSort(data, low, pivot - 1);
-
             quickSort(data, pivot + 1, high);
 
         }
@@ -41,7 +39,7 @@ public class QuickSort2 {
     public static void main(String[] args) {
         QuickSort2 t = new QuickSort2();
         //int[] a = {3, 2, 7, 10, 1, 9, 0, 5};
-        int[] a = {3, 6, 2, 7, 1};
+        int[] a = {6, 4, 2, 7, 1};
         t.quickSort(a, 0, a.length - 1);
         for (int i : a)
             System.out.print(i + " ");
