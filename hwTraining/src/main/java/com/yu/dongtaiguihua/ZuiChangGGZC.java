@@ -8,8 +8,8 @@ package com.yu.dongtaiguihua;
 public class ZuiChangGGZC {
 
     public static void main(String[] args) {
-        String s1 = "mylovelijuandddddd1";
-        String s2 = "mylovedddddd1yusevelijnzz";
+        String s1 = "12mylove2liyyyyyyyasdas7777777444";
+        String s2 = "3mylove2dyyyyyyydaaaasd7777777";
         //velij
         System.out.println(getMaxLength(s1, s2));
     }
@@ -18,6 +18,8 @@ public class ZuiChangGGZC {
         char[] s1Arr = s1.toCharArray();
         char[] s2Arr = s2.toCharArray();
 
+        //求最长子串长度
+        int maxLength = 0;
         int[][] temp = new int[s1Arr.length + 1][s2Arr.length + 1];
         for (int i = 1; i < s1Arr.length + 1; i++) {
             for (int j = 1; j < s2Arr.length + 1; j++) {
@@ -26,28 +28,28 @@ public class ZuiChangGGZC {
                 } else {
                     temp[i][j] = 0;
                 }
-            }
-        }
-        int result = 0;
-        int x = 0;
-        StringBuilder sb = new StringBuilder();
-        for (int i = 1; i < s1Arr.length + 1; i++) {
-            for (int j = 1; j < s2Arr.length + 1; j++) {
-                if (temp[i][j] > result) {
-                    result = temp[i][j];
-                    x = i;
+                if (temp[i][j] > maxLength) {
+                    maxLength = temp[i][j];
                 }
             }
         }
-        //求出最大子串长度是result,左边是x,y
-        for (int i = result; i > 0; i--) {
-            sb.insert(0, s1Arr[x - 1]);
-            x--;
-            if (x < 1) {
-                break;
+
+        for (int i = 1; i < s1Arr.length + 1; i++) {
+            for (int j = 1; j < s2Arr.length + 1; j++) {
+                if (temp[i][j] == maxLength) {
+                    StringBuilder sb = new StringBuilder();
+                    int x = i;
+                    for (int p = maxLength; p > 0; p--) {
+                        sb.insert(0, s1Arr[x - 1]);
+                        x--;
+                        if(x<1){
+                            break;
+                        }
+                    }
+                    System.out.println(sb);
+                }
             }
         }
-        System.out.println("最长子串是： " + sb);
-        return result;
+        return maxLength;
     }
 }
