@@ -1,5 +1,7 @@
 package com.yu.dongtaiguihua;
 
+import java.util.StringJoiner;
+
 /**
  * @Author yu
  * @DateTime 2020/5/6 22:29
@@ -33,23 +35,16 @@ public class ZuiChangGGZC {
                 }
             }
         }
-
+        StringJoiner sj = new StringJoiner(",", "最长子串都有： ", "");
         for (int i = 1; i < s1Arr.length + 1; i++) {
             for (int j = 1; j < s2Arr.length + 1; j++) {
+                //如果一个点的值是最长的长度，那么从他开始往前的maxLength个字符就是最长子串
                 if (temp[i][j] == maxLength) {
-                    StringBuilder sb = new StringBuilder();
-                    int x = i;
-                    for (int p = maxLength; p > 0; p--) {
-                        sb.insert(0, s1Arr[x - 1]);
-                        x--;
-                        if(x<1){
-                            break;
-                        }
-                    }
-                    System.out.println(sb);
+                    sj.add(s1.substring(i - maxLength, i));
                 }
             }
         }
+        System.out.println(sj);
         return maxLength;
     }
 }
