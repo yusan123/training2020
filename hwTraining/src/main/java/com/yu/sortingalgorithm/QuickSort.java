@@ -21,8 +21,14 @@ import java.util.stream.Collectors;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        Integer[] arr = {1, 4, -2, 1, 1, 9, 9, -10};
-        System.out.println((quickSort(Arrays.asList(arr))));
+        int[] arr = {1, 4, -2, 1, 1, 9, 9, -10};
+        System.out.println(quickSort(arr));
+    }
+
+    private static List<Integer> quickSort(int[] arr) {
+        List<Integer> list = new ArrayList<>(arr.length);
+        Arrays.stream(arr).forEach(i -> list.add(i));
+        return quickSort(list);
     }
 
     private static List<Integer> quickSort(List<Integer> list) {

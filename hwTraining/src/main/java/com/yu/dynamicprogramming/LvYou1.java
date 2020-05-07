@@ -1,4 +1,4 @@
-package com.yu.dongtaiguihua;
+package com.yu.dynamicprogramming;
 
 /**
  * @Author yu
@@ -22,36 +22,35 @@ public class LvYou1 {
         int[] times = {1, 1, 2, 4, 1};
         int[] score = {7, 6, 9, 9, 8};
 
-        System.out.println(getShouldGo(m,n,times,score));
+        System.out.println(getShouldGo(m, n, times, score));
     }
 
-    public static int getShouldGo(int m,int n,int[] t,int[] v){
+    public static int getShouldGo(int m, int n, int[] t, int[] v) {
 
-        int[][] result = new int[m+1][n+1];
+        int[][] dp = new int[m + 1][n + 1];
         //i描述的是m个景点去哪个
-        for (int i = 1; i < m+1; i++) {
+        for (int i = 1; i < m + 1; i++) {
             //j表示的是1天两天三天。。。
-            for (int j = 1; j < n+1; j++) {
+            for (int j = 1; j < n + 1; j++) {
                 //表示当前的景点需要的时间，大于当前的j表示的时间，则不能去
-                if(t[i-1]>j){
-                    result[i][j] = result[i-1][j];
-                }else{
-                    result[i][j] = Math.max(result[i-1][j],result[i-1][j-t[i-1]]+v[i-1]);
+                if (t[i - 1] > j) {
+                    dp[i][j] = dp[i - 1][j];
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - t[i - 1]] + v[i - 1]);
                 }
             }
         }
-
         int j = n;
         for (int i = m; i > 0; i--) {
-            if(result[i][j]>result[i-1][j]){
+            if (dp[i][j] > dp[i - 1][j]) {
                 //说明该物品假如到了列表中去
-                System.out.println(i-1);
-                j-=t[i-1];
-                if(j==0){
+                System.out.println(i - 1);
+                j -= t[i - 1];
+                if (j == 0) {
                     break;
                 }
             }
         }
-        return result[m][n];
+        return dp[m][n];
     }
 }
