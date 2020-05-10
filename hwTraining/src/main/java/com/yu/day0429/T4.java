@@ -40,11 +40,14 @@ import java.util.stream.Collectors;
  */
 public class T4 {
     public static void main(String[] args) {
-
+        /**
+         * todo : 给总钱数/10 商品数/10,最后结果乘以10,这样方便些
+         */
         Scanner scanner = new Scanner(System.in);
         String input1 = scanner.nextLine();
 
         String[] split = input1.split(" ");
+
         int v = Integer.parseInt(split[0]);
         int n = Integer.parseInt(split[1]);
 
