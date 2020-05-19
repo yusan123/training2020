@@ -40,45 +40,45 @@ public class T2 {
         try {
             Scanner sc = new Scanner(System.in);
             while (sc.hasNextLine()) {
-            String s = sc.nextLine().replaceAll(" ", "");
-            if (s.isEmpty()) {
-                return;
-            }
-            String[] sArr = s.split("");
-            LinkedList<String> ouList = new LinkedList<>();
-            LinkedList<String> jiList = new LinkedList<>();
-            for (int i = 0; i < sArr.length; i++) {
-                if (i % 2 == 0) {
-                    ouList.add(sArr[i]);
-                } else {
-                    jiList.add(sArr[i]);
+                String s = sc.nextLine().replaceAll(" ", "");
+                if (s.isEmpty()) {
+                    return;
                 }
-            }
-            Collections.sort(ouList);
-            Collections.sort(jiList);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < sArr.length; i++) {
-                if (i % 2 == 0) {
-                    sb.append(ouList.removeFirst());
-                } else {
-                    sb.append(jiList.removeFirst());
+                String[] sArr = s.split("");
+                LinkedList<String> ouList = new LinkedList<>();
+                LinkedList<String> jiList = new LinkedList<>();
+                for (int i = 0; i < sArr.length; i++) {
+                    if (i % 2 == 0) {
+                        ouList.add(sArr[i]);
+                    } else {
+                        jiList.add(sArr[i]);
+                    }
                 }
-            }
-            char[] chars = sb.toString().toCharArray();
-            char[] result = new char[chars.length];
-            for (int i = 0; i < chars.length; i++) {
-                char c = chars[i];
-                if (c <= 'F' && c >= 'A') {
-                    c = (char) (c + 32);
+                Collections.sort(ouList);
+                Collections.sort(jiList);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < sArr.length; i++) {
+                    if (i % 2 == 0) {
+                        sb.append(ouList.removeFirst());
+                    } else {
+                        sb.append(jiList.removeFirst());
+                    }
                 }
-                if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f')) {
-                    result[i] = getNewChar(c);
-                } else {
-                    result[i] = c;
+                char[] chars = sb.toString().toCharArray();
+                char[] result = new char[chars.length];
+                for (int i = 0; i < chars.length; i++) {
+                    char c = chars[i];
+                    if (c <= 'F' && c >= 'A') {
+                        c = (char) (c + 32);
+                    }
+                    if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f')) {
+                        result[i] = getNewChar(c);
+                    } else {
+                        result[i] = c;
+                    }
                 }
+                System.out.println(new String(result));
             }
-            System.out.println(new String(result));
-               }
         } catch (Exception e) {
             e.printStackTrace();
         }
