@@ -22,7 +22,6 @@ public class Singleton {
     }
 
     public static void main(String[] args) {
-
         Singleton instance = getInstance();
         Singleton instance1 = getInstance();
 
